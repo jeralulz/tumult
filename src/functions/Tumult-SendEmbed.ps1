@@ -7,6 +7,6 @@ function Tumult-SendEmbed {
     )
 
     Begin { $wh = [DiscordWebhook]::new($Webhook) }
-    Process { $wh.embeds.Add($_) }
+    Process { $Embed | ForEach { $wh.embeds.Add($_) } }
     End { $wh.Send() }
 }
